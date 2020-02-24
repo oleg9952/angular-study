@@ -1,5 +1,5 @@
-<div [ngClass]="{modal_holder: true, show: modalOpen}">
-    <div class="close_btn" (click)="toggleModal()">
+<div [ngClass]="{modal_holder: true, show: todosService.modal}">
+    <div class="close_btn" (click)="todosService.toggleModal()">
         <i class="far fa-times-circle"></i>
     </div>
     <div class="modal">

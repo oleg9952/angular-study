@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class TodosService {
 
+  modal: boolean = false
+
   todos: any[] = [
     {
       id: 1,
@@ -41,5 +43,10 @@ export class TodosService {
         return todo.status = !todo.status
       }
     })
+  }
+
+  toggleModal() {
+    this.modal = !this.modal
+    console.log(this.modal)
   }
 }

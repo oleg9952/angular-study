@@ -7,7 +7,7 @@
   <div class="content">
     <app-todos></app-todos>
   </div>
-  <button class="add_todo">
+  <button class="add_todo" (click)="todosService.toggleModal()">
     <i class="fas fa-plus"></i>
   </button>
   <app-add-todo-modal></app-add-todo-modal>

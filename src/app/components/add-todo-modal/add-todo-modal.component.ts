@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TodosService } from 'src/app/services/todos.service';
 
 @Component({
   selector: 'app-add-todo-modal',
@@ -7,23 +8,19 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class AddTodoModalComponent implements OnInit {
 
-  modalOpen: boolean = false;
-
   newTodoText: string = null;
 
-  @Output() handleModal: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+
+  constructor(
+    public todosService: TodosService
+  ) { }
 
   ngOnInit(): void {
   }
 
   handleNewTodo() {
     this.newTodoText = null;
-  }
-
-  toggleModal() {
-    this.modalOpen = !this.modalOpen
   }
 
 }
