@@ -47,6 +47,34 @@ export class TodosService {
 
   toggleModal() {
     this.modal = !this.modal
-    console.log(this.modal)
+  }
+
+  addNewTodo(todo): void {
+    console.log(this.todos)
+    this.todos.push({
+      id: this.todos.length !== 0 ? this.todos[this.todos.length - 1].id + 1 : 1,
+      text: todo,
+      status: false
+    })
+  }
+
+  getDueTodos(): Array<object> {
+    let due: Array<object> = []
+    this.todos.filter(todo => {
+      if(!todo.status) {
+        due.push(todo)
+      }
+    })
+    return due
+  }
+
+  getDoneTodos(): Array<object> {
+    let due: Array<object> = []
+    this.todos.filter(todo => {
+      if(todo.status) {
+        due.push(todo)
+      }
+    })
+    return due
   }
 }

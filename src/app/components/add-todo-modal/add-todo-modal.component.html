@@ -2,10 +2,10 @@
     <div class="close_btn" (click)="todosService.toggleModal()">
         <i class="far fa-times-circle"></i>
     </div>
-    <div class="modal">
+    <div class="modal" [ngClass]="{modal: true, show: todosService.modal}">
         <div 
             [ngClass]="{confirm: true, show: newTodoText ? true : false}" 
-            (click)="handleNewTodo()"
+            (click)="handleNewTodo(newTodoText)"
         >
             <i class="fas fa-plus"></i>
         </div>

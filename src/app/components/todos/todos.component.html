@@ -1,26 +1,35 @@
-<div class="todos_block"
-    [ngStyle]="{display: todo.length === 0 ? 'none' : 'block'}"
+<div class="todos_wrapper"
+    [ngStyle]="{display: todosService.todos.length === 0 ? 'none' : 'block'}"
 >
-    <div class="todo_item"
-        *ngFor="let item of todo"
+    <div class="todos_block"
+        [ngStyle]="{display: todosService.getDueTodos().length === 0 ? 'none' : 'block'}"
     >
-        <p class="todo_text">
-            {{ item.text }} 
-        </p>
-        <div class="todo_check" (click)="handleDone(item.id)">
-            <i class="fas fa-check"></i>
+    <!--  -->
+        <div class="todo_item"
+            *ngFor="let item of todosService.getDueTodos()"
+        >
+            <p class="todo_text">
+                {{ item.text }} 
+            </p>
+            <div class="todo_check" (click)="handleDone(item.id)">
+                <i class="fas fa-check"></i>
+            </div>
+        </div>
+    </div>
+    <div class="todos_block">
+        <div class="todo_item"
+            *ngFor="let item of todosService.getDoneTodos()"
+        >
+            <p class="todo_text done">
+                {{ item.text }} 
+            </p>
+            <div class="todo_check done" (click)="handleDone(item.id)">
+                <i class="fas fa-check"></i>
+            </div>
         </div>
     </div>
 </div>
-<div class="todos_block">
-    <div class="todo_item"
-        *ngFor="let item of done"
-    >
-        <p class="todo_text done">
-            {{ item.text }} 
-        </p>
-        <div class="todo_check done" (click)="handleDone(item.id)">
-            <i class="fas fa-check"></i>
-        </div>
-    </div>
-</div>
+
+<h2 class="placeholder"
+    [ngStyle]="{display: todosService.todos.length !== 0 ? 'none' : 'block'}"
+>No todos added yet...</h2>

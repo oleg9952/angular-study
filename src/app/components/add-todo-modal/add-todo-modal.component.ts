@@ -10,8 +10,6 @@ export class AddTodoModalComponent implements OnInit {
 
   newTodoText: string = null;
 
-
-
   constructor(
     public todosService: TodosService
   ) { }
@@ -19,7 +17,9 @@ export class AddTodoModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleNewTodo() {
+  handleNewTodo(todo) {
+    this.todosService.addNewTodo(todo)
+    this.todosService.toggleModal()
     this.newTodoText = null;
   }
 

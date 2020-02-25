@@ -8,20 +8,12 @@ import { TodosService } from "../../services/todos.service";
 })
 export class TodosComponent implements OnInit {
 
-  todo: any[]
-  done: any[]
-
-  constructor(private todosService: TodosService) { }
+  constructor(public todosService: TodosService) { }
 
   ngOnInit() {
-    this.todo = this.todosService.todos.filter(todo => todo.status === false)
-    this.done = this.todosService.todos.filter(todo => todo.status === true)
   }
 
   handleDone(id): void {
     this.todosService.markDone(id)
-    this.todo = this.todosService.todos.filter(todo => todo.status === false)
-    this.done = this.todosService.todos.filter(todo => todo.status === true)
   }
-
 }
