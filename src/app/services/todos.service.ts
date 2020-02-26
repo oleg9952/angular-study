@@ -7,37 +7,39 @@ export class TodosService {
 
   modal: boolean = false
 
-  todos: any[] = [
-    {
-      id: 1,
-      text: 'Learn JS',
-      status: true
-    },
-    {
-      id: 2,
-      text: 'Learn Dart',
-      status: false
-    },
-    {
-      id: 3,
-      text: 'Make a todo list',
-      status: true
-    },
-    {
-      id: 4,
-      text: 'Hello World',
-      status: false
-    },
-    {
-      id: 5,
-      text: 'Hello',
-      status: false
-    }
-  ]
+  // todos: any[] = [
+  //   {
+  //     id: 1,
+  //     text: 'Learn JS',
+  //     status: true
+  //   },
+  //   {
+  //     id: 2,
+  //     text: 'Learn Dart',
+  //     status: false
+  //   },
+  //   {
+  //     id: 3,
+  //     text: 'Make a todo list',
+  //     status: true
+  //   },
+  //   {
+  //     id: 4,
+  //     text: 'Hello World',
+  //     status: false
+  //   },
+  //   {
+  //     id: 5,
+  //     text: 'Hello',
+  //     status: false
+  //   }
+  // ]
+
+  todos: any[] = []
 
   constructor() { }
 
-  markDone(id) {
+  markDone(id: number) {
     this.todos.forEach(todo => {
       if(todo.id === id) {
         return todo.status = !todo.status
@@ -49,13 +51,15 @@ export class TodosService {
     this.modal = !this.modal
   }
 
-  addNewTodo(todo): void {
-    console.log(this.todos)
+  addNewTodo(todo: string): void {
     this.todos.push({
       id: this.todos.length !== 0 ? this.todos[this.todos.length - 1].id + 1 : 1,
       text: todo,
-      status: false
+      status: false,
+      editTime: new Date().getTime()
     })
+    this.todos.sort(this.sorter('editTime'))
+    console.log(this.todos)
   }
 
   getDueTodos(): Array<object> {
@@ -76,5 +80,19 @@ export class TodosService {
       }
     })
     return due
+  }
+
+  //---------- Sorting ----------
+
+  sorter = selector => {
+    return (a, b) => {
+        if (a[selector] < b[selector]) {
+          return -1;
+        }
+        if (a[selector] > b[selector]) {
+          return 1;
+        }
+        return 0;
+    }
   }
 }
