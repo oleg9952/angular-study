@@ -1,0 +1,9 @@
+<footer>
+    <input 
+      type="text" 
+      id="search" 
+      placeholder="Enter country's name" 
+      (input)="dataService.searchCodes(searchValue)"
+      [(ngModel)]="searchValue"
+    />
+  </footer>

@@ -1,0 +1,9 @@
+<div class="content">
+    <div *ngIf="dataService.codes">
+        <app-card
+            *ngFor="let code of dataService.outputData()"
+            [countryCode]="code"
+            [delay]="getDelay()"
+        ></app-card>
+    </div>
+</div>
