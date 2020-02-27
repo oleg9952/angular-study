@@ -8,12 +8,10 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CardComponent implements OnInit {
 
   @Input() countryCode: any
-  @Input() delay: string
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.delay)
   }
 
 }
