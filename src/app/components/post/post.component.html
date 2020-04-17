@@ -1,1 +1,6 @@
-<p>post works!</p>
+<div 
+    [ngClass]="['post', post.color]"
+>
+    <h2 class="post__title" [routerLink]="['/posts', post.id]" routerLinkActive="router-link-active"  >{{ post.title }}</h2>
+    <p class="post__text">{{ post.text.split(',').splice(0, 3).join(',') }}...</p>
+</div>
