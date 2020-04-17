@@ -1,0 +1,15 @@
+<form class="form"
+    [ngStyle]="{display: formState ? 'block' : 'none'}"
+    (click)="toggleForm($event)"
+>
+    <div class="form__body">
+        <h2 class="form__title">Compose your post</h2>
+        <div class="form__inputs">
+            <input type="text" name="title" placeholder="Post title...">
+            <textarea name="text" placeholder="Post text..."></textarea>
+            <button type="submit">Add new post</button>
+        </div>
+    </div>
+</form>
+
+<button class="openform" (click)="toggleForm($event)">+</button>
