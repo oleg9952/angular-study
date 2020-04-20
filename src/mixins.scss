@@ -1,0 +1,4 @@
+@mixin color__theme($bg) {
+    background-color: $bg;
+    color: #fff;
+}

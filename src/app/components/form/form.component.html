@@ -2,7 +2,10 @@
     [ngStyle]="{display: formState ? 'block' : 'none'}"
     (click)="toggleForm($event)"
 >
-    <div class="form__body">
+    <div [ngClass]="[
+        'form__body',
+        color ? color : ''
+    ]">
         <h2 class="form__title">Compose your post</h2>
         <div class="form__inputs">
             <input 

@@ -1,3 +1,6 @@
+@use '../../../variables.scss' as *;
+@use '../../../mixins.scss' as mixins;
+
 .form {
     position: fixed;
     top: 0;
@@ -22,6 +25,7 @@
         box-shadow: 0 0px 30px rgba(0,0,0,0.19), 0 0px 20px rgba(0,0,0,0.23);
         padding: 20px;
         animation: slideIn .7s forwards .4s;
+        transition: .5s;
     }
     &__body::-webkit-scrollbar {
         display: none;
@@ -32,6 +36,7 @@
         text-align: center;    
         margin-bottom: 15px;   
         color: #000;
+        transition: .5s;
     }
     &__inputs {
         width: 80%;
@@ -57,6 +62,7 @@
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         margin-bottom: 15px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
         .color {
             outline: none;
             width: 100%;
@@ -87,6 +93,39 @@
         font-size: 18px;
         text-transform: uppercase;
         height: 40px;
+    }
+}
+
+.form {
+    &__body.green {
+        @include mixins.color__theme($green);
+        .form__title {
+            color: #fff;
+        }
+    }
+    &__body.orange {
+        @include mixins.color__theme($orange);
+        .form__title {
+            color: #fff;
+        }
+    }
+    &__body.lightBlue {
+        @include mixins.color__theme($lightBlue);
+        .form__title {
+            color: #fff;
+        }
+    }
+    &__body.purple {
+        @include mixins.color__theme($purple);
+        .form__title {
+            color: #fff;
+        }
+    }
+    &__body.grey {
+        @include mixins.color__theme($grey);
+        .form__title {
+            color: #000;
+        }
     }
 }
 

@@ -1,4 +1,8 @@
+@use '../../../variables.scss' as *;
+@use '../../../mixins.scss' as mixins;
+
 .post {
+    padding: 15px;
     &__title {
         font-size: 45px;
         text-align: center;
@@ -10,4 +14,20 @@
         font-style: italic;
         margin: 20px 0;
     }
+}
+
+.post.green {
+    @include mixins.color__theme($green);
+}
+.post.orange {
+    @include mixins.color__theme($orange);
+}
+.post.lightBlue {
+    @include mixins.color__theme($lightBlue);
+}
+.post.purple {
+    @include mixins.color__theme($purple);
+}
+.post.grey {
+    @include mixins.color__theme($grey);
 }

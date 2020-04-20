@@ -22,6 +22,9 @@ export class FormComponent implements OnInit {
   toggleForm(e: Event): void {
     if (e.target === e.currentTarget) {
       this.formState = !this.formState;
+      this.title = '';
+      this.text = '';
+      this.color = null;
     };
   }
 
