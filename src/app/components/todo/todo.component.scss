@@ -1,0 +1,83 @@
+.todo {
+    height: 45px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    position: relative;
+    overflow: hidden;
+    margin: 10px 0;
+    &__body {
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        position: relative;
+        z-index: 1;
+        transform: translateX(0px);
+        transition: .4s;
+        display: grid;
+        grid-template-columns: 45px 1fr;
+        align-items: center;
+        i {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+        }
+        p {
+            font-size: 18px;
+        }
+        .todo__body-triger {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 15px;
+            height: 100%;
+            background-color: #61b8ff;
+            animation: bg 5s linear infinite;
+            display: none;
+        }
+    }
+    &__body.active {
+        transform: translateX(-90px);
+    }
+    &__btns {
+        width: 90px;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: inset 0 0 5px -2px #000;
+            transition: background-color .3s;
+        }
+        .todo__done {
+            background-color: #07ff1c;
+        }
+        .todo__done:hover {
+            background-color: #a7ffae;
+        }
+        .todo__delete {
+            background-color: #ff0404;
+        }
+        .todo__delete:hover {
+            background-color: #ff9f9f;
+        }
+    }
+}
+
+@keyframes bg {
+    25% {
+        background-color: #3bff14;
+    } 50% {
+        background-color: #ff0000;
+    } 75% {
+        background-color: #ec1bff;
+    } 
+}

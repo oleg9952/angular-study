@@ -1,0 +1,18 @@
+<div class="todo" (mouseenter)="show()" (mouseleave)="hide()">
+    <div [ngClass]="{
+        todo__body: true,
+        active: todoState
+    }">
+        <i class="fas fa-list-ul"></i>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <div class="todo__body-triger"></div>
+    </div>
+    <div class="todo__btns">
+        <div class="todo__done" (click)="handleDone(3)">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="todo__delete" (click)="handleDelete(3)">
+            <i class="fas fa-trash"></i>
+        </div>
+    </div>
+</div>
