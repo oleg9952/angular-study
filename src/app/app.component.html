@@ -1,10 +1,9 @@
 <div class="app">
   <app-add-todo></app-add-todo>
   <div class="app__body">
-    <app-todo></app-todo>
-    <app-todo></app-todo>
-    <app-todo></app-todo>
-    <app-todo></app-todo>
-    <app-todo></app-todo>
+    <app-todo
+      *ngFor="let todo of todos"
+      [todo]="todo"
+    ></app-todo>
   </div>
 </div>

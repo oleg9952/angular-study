@@ -3,6 +3,7 @@
         type="text" 
         name="todo"
         placeholder="New todo..."
+        [(ngModel)]="message"
     >
-    <button type="submit">Add Todo</button>
+    <button type="submit" (click)="handleNewTodo(message)">Add Todo</button>
 </form>
